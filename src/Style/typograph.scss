@@ -1,0 +1,38 @@
+
+
+// .font-main {
+  // font-family: Roboto
+// }
+
+
+.normal {
+  font-weight: normal;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+@for $i from 1 to 80 {
+  .fs-#{$i} {
+    font-size: $i + px;
+  }
+
+  .lh-#{$i} {
+    line-height: $i + px;
+  }
+}
+
+@for $i from 4 to 9 {
+  .fw-#{$i * 100} {
+    font-weight: $i * 100;
+  }
+}
+
+.fw700 {
+  font-weight: 700;
+}
+.fw400{
+  font-weight: 400;
+}
