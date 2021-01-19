@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { AuthUserProvider } from './Hooks/auth-user-provider';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <AuthUserProvider>
+            <App />
+        </AuthUserProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
