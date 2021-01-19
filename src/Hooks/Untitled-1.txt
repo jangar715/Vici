@@ -1,0 +1,10 @@
+user : 
+    lastname:
+    firstname:
+    phone number (optional): 
+    uid: 
+    email: 
+    gender: 
+    graduate year:
+
+    password
