@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useFirebase, useCol } from '../Hooks/firebase';
 import Lines from './Lines';
+import { AuthStateValue } from '../Hooks/auth-user-provider';
 // import { provider, auth } from '../Hooks/firebase';
 
 const SignUp = () => {
@@ -12,27 +13,9 @@ const SignUp = () => {
         password: '',
         graduateyear: '',
     });
-    const { auth, googleProvider } = useFirebase();
+    const { auth } = AuthStateValue();
+    const { googleProvider } = useFirebase();
     const { data, deleteRecord, createRecord } = useCol('users');
-    /*
-    user : 
-        lastname:
-        firstname:
-        phone number (optional): 
-        uid: 
-        email: 
-        gender: 
-        graduate year:
-
-    password
-    */
-    // const clearAllUsers = () => {
-    //     // console.log(data);
-    //     data.forEach((el) => {
-    //         deleteRecord(el.id);
-    //     });
-    // };
-    // clearAllUsers();
 
     const createNewUser = ({
         email,
@@ -51,13 +34,12 @@ const SignUp = () => {
         auth.signInWithPopup(googleProvider)
             .then((result) => {
                 console.log(result.user);
-                const { uid, email, displayName } = result.user;
                 createNewUser({ ...result.user, gender: '' });
             })
             .catch((error) => console.log(error.message));
     };
-    const createUserWithPassword = () => {
-        // e.preventDefault();
+    const createUserWithPassword = (e) => {
+        e.preventDefault();
         if (user.username === '') {
             /// ...
             console.log('username is empty');
@@ -66,7 +48,6 @@ const SignUp = () => {
         auth.createUserWithEmailAndPassword(user.email, user.password)
             .then((result) => {
                 console.log(result.user);
-                // result.user.displayName = user.username;
                 createNewUser({
                     ...result.user,
                     displayName: user.username,
@@ -95,7 +76,6 @@ const SignUp = () => {
                 <input
                     value={user.username}
                     onChange={(e) => {
-                        console.log(user);
                         setUser({ ...user, username: e.target.value });
                     }}
                     onBlur={() => {
