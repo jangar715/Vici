@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { useFirebase, useCol } from '../Hooks/firebase';
-import Lines from './Lines';
-// import { provider, auth } from '../Hooks/firebase';
+import { AuthStateValue } from '../Hooks/auth-user-provider';
 
 const SignUp = () => {
     const [user, setUser] = useState({
@@ -12,90 +10,14 @@ const SignUp = () => {
         password: '',
         graduateyear: '',
     });
-    const { auth, googleProvider } = useFirebase();
-    const { data, deleteRecord, createRecord } = useCol('users');
-    /*
-    user : 
-        lastname:
-        firstname:
-        phone number (optional): 
-        uid: 
-        email: 
-        gender: 
-        graduate year:
-
-    password
-    */
-    // const clearAllUsers = () => {
-    //     // console.log(data);
-    //     data.forEach((el) => {
-    //         deleteRecord(el.id);
-    //     });
-    // };
-    // clearAllUsers();
-
-    const createNewUser = ({
-        email,
-        uid,
-        displayName,
-        gender,
-        phoneNumber,
-        role = 'member',
-    }) => {
-        createRecord(uid, { email, displayName, gender, phoneNumber, role });
-    };
-
-    const signInWithGmail = (e) => {
-        console.log(googleProvider);
-        e.preventDefault();
-        auth.signInWithPopup(googleProvider)
-            .then((result) => {
-                console.log(result.user);
-                const { uid, email, displayName } = result.user;
-                createNewUser({ ...result.user, gender: '' });
-            })
-            .catch((error) => console.log(error.message));
-    };
-    const createUserWithPassword = () => {
-        // e.preventDefault();
-        if (user.username === '') {
-            /// ...
-            console.log('username is empty');
-            return;
-        }
-        auth.createUserWithEmailAndPassword(user.email, user.password)
-            .then((result) => {
-                console.log(result.user);
-                // result.user.displayName = user.username;
-                createNewUser({
-                    ...result.user,
-                    displayName: user.username,
-                    gender: user.gender,
-                    phoneNumber: user.phone,
-                });
-                // const currentUser = result.user;
-                // createRecord();
-
-                // result.user.displayName = user.username;
-                // Signed in
-                // ...
-            })
-            .catch((error) => console.log(error.message));
-    };
+    const { signUpWithEmailAndPassword, signInWithGmail } = AuthStateValue();
 
     return (
         <div>
             <form>
-                {/* <Lines
-                    user={user}
-                    setUser={setUser}
-                    placeholder='username'
-                    attribute={user.username}
-                /> */}
                 <input
                     value={user.username}
                     onChange={(e) => {
-                        console.log(user);
                         setUser({ ...user, username: e.target.value });
                     }}
                     onBlur={() => {
@@ -141,15 +63,24 @@ const SignUp = () => {
                     placeholder='phone'
                     // className='phone'
                 />
-                <button type='submit' onClick={signInWithGmail}>
+                <button
+                    type='submit'
+                    onClick={(e) => {
+                        e.preventDefault();
+                        signInWithGmail();
+                    }}
+                >
                     sign in with gmail
                 </button>
-                <button type='submit' onClick={createUserWithPassword}>
+                <button
+                    type='submit'
+                    onClick={(e) => {
+                        e.preventDefault();
+                        signUpWithEmailAndPassword(user);
+                    }}
+                >
                     sign up
                 </button>
-                {/* <button type='submit' onClick={signIn}>
-                    sign in with gmail
-                </button> */}
             </form>
         </div>
     );
