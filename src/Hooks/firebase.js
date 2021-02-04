@@ -3,14 +3,13 @@ import { useState, useEffect } from 'react';
 import 'firebase/storage';
 
 const config = {
-    apiKey: 'AIzaSyAWZHQ5rNFcHk8hY-_09QYVs5XZUQk3o34',
-    authDomain: 'funding-project.firebaseapp.com',
-    databaseURL: 'https://funding-project.firebaseio.com',
-    projectId: 'funding-project',
-    storageBucket: 'funding-project.appspot.com',
-    messagingSenderId: '448627272657',
-    appId: '1:448627272657:web:230ddb712886ba60d98ef0',
-    measurementId: 'G-CZLS5G1PH0',
+    apiKey: 'AIzaSyCtSXpHE4lvjfjQ3R03JRTUE1z9K3Iw6Lg',
+    authDomain: 'vici-news.firebaseapp.com',
+    projectId: 'vici-news',
+    storageBucket: 'vici-news.appspot.com',
+    messagingSenderId: '313330293720',
+    appId: '1:313330293720:web:e5df05a37512bc149470ad',
+    measurementId: 'G-X17441MMR0',
 };
 
 export const useFirebase = () => {
