@@ -1,11 +1,12 @@
 import React from 'react';
 import SignUp from './Component/SignUp';
+import { useFirebase } from './Hooks/firebase';
 import { AuthStateValue } from './Hooks/auth-user-provider';
-import firebase from 'firebase';
+// import firebase from 'firebase';
 
 const App = () => {
-    const { user, auth } = AuthStateValue();
-    console.log(auth);
+    const { user } = AuthStateValue();
+    const { auth } = useFirebase();
     const logout = () => {
         auth.signOut()
             .then(() => {

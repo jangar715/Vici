@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useFirebase } from '../Hooks/firebase';
+import { useFirebase, useCol } from '../Hooks/firebase';
 
 export const AuthContext = createContext({
     user: null,
@@ -11,7 +11,49 @@ export const AuthUserProvider = ({ children }) => {
         ready: false,
         user: null,
     });
-    let { auth } = useFirebase();
+    let { auth, googleProvider } = useFirebase();
+    let { createRecord } = useCol('users');
+    const createNewUser = ({
+        email,
+        uid,
+        displayName,
+        gender,
+        phoneNumber,
+        role = 'member',
+    }) => {
+        createRecord(uid, { email, displayName, gender, phoneNumber, role });
+    };
+    const signInWithGmail = () => {
+        auth.signInWithPopup(googleProvider)
+            .then((result) => {
+                createNewUser({ ...result.user, gender: '' });
+            })
+            .catch((error) => console.log(error.message));
+    };
+    const signUpWithEmailAndPassword = ({
+        email,
+        password,
+        username,
+        gender,
+        phone,
+    }) => {
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((result) => {
+                createNewUser({
+                    ...result.user,
+                    displayName: username,
+                    gender: gender,
+                    phoneNumber: phone,
+                });
+                // const currentUser = result.user;
+                // createRecord();
+
+                // result.user.displayName = user.username;
+                // Signed in
+                // ...
+            })
+            .catch((error) => console.log(error.message));
+    };
 
     useEffect(() => {
         if (!auth) {
@@ -33,7 +75,14 @@ export const AuthUserProvider = ({ children }) => {
     }, [auth]);
 
     return (
-        <AuthContext.Provider value={{ ...state, auth }}>
+        <AuthContext.Provider
+            value={{
+                ...state,
+                auth,
+                signInWithGmail,
+                signUpWithEmailAndPassword,
+            }}
+        >
             {children}
         </AuthContext.Provider>
     );
