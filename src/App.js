@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Navbar from './Component/Navbar/Navbar';
 import SignUp from './Component/SignUp';
 import { Provider } from './Providers/provider';
 import { Infos } from './Component/infos';
@@ -27,6 +28,9 @@ import { Context } from './Providers/provider'
                 <Switch>
                     <Route exact path="/">
                     <div>
+                        <Router>
+                            < Navbar /> 
+                        </Router>
                         {user ? (
                             <>
                                 <h1>{user.email}</h1>
