@@ -1,0 +1,55 @@
+navbar{
+    font-family: 'Nunito', sans-serif;
+    background: #fff;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    border-bottom: 1px solid darkgray;
+}
+.logo {
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.nav-menu {
+    margin-left: 120px;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: start;
+    margin-right: 2rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+.nav-links {
+    color: black;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+}
+.menu-icon {
+    display: none;
+}
+.line-break{
+    height: 35px;
+    width: 1px;
+    background: black;
+    justify-self: center;
+    align-self: center;
+}
+.toggle-menu {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
