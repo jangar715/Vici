@@ -7,6 +7,7 @@ import { useFirebase } from './Hooks/firebase';
 import { AuthStateValue, AuthUserProvider } from './Hooks/auth-user-provider';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Context } from './Providers/provider';
+import './Style/App.css'
 const App = () => {
     const { user } = AuthStateValue();
     const { auth } = useFirebase();
@@ -26,7 +27,7 @@ const App = () => {
                     <Route exact path='/'>
                         <div>
                             {/* <Router> */}
-                            <Navbar />
+                            {/* <Navbar /> */}
                             {/* </Router> */}
                             {user ? (
                                 <>
@@ -37,7 +38,7 @@ const App = () => {
                                 <>
                                     <Link to='/user-login'>Login</Link>
                                     <Route path='/user-login'>
-                                        <Link to='/'>back</Link>
+                                        {/* <Link to='/'>back</Link> */}
                                         <SignUp />
                                     </Route>
                                 </>
@@ -52,7 +53,7 @@ const App = () => {
                         <Infos />
                     </Route>
                     <Route path='/user-login'>
-                        <Link to='/'>back</Link>
+                        {/* <Link to='/'>back</Link> */}
                         <SignUp />
                     </Route>
                 </Switch>

@@ -1,0 +1,48 @@
+.input-field{
+    height: 56px;
+    width: 447px;
+}
+.signup-body{
+    background: linear-gradient(102.81deg, #FF5555 11.43%, #FFF066 50.07%, #7EE8FF 84.89%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input-container{
+    margin-top: 30px;
+    display: flex;
+    height: 360px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+input{
+    border-radius: 30px;
+    display: flex;
+    text-align: center;
+    border: 0.5px solid black;
+    font-family: "Nunito", sans-serif;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    width: 577px;
+    height: 600px;
+    border-radius: 30PX;
+    background: #fff;
+    justify-content: space-evenly;
+    align-items: center;
+}
+button{
+    background: black;
+    color: #fff;
+    height: 46px;
+    width: 215px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: "Nunito", sans-serif;
+}
