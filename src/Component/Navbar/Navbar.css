@@ -1,4 +1,4 @@
-navbar{
+navbar {
     font-family: 'Nunito', sans-serif;
     background: #fff;
     height: 80px;
@@ -21,7 +21,7 @@ navbar{
     list-style: none;
     text-align: center;
     width: 70vw;
-    justify-content: start;
+    justify-content: center;
     margin-right: 2rem;
 }
 
@@ -40,7 +40,7 @@ navbar{
 .menu-icon {
     display: none;
 }
-.line-break{
+.line-break {
     height: 35px;
     width: 1px;
     background: black;
