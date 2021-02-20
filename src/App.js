@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Navbar from './Component/Navbar/Navbar';
 import SignUp from './Component/SignUp';
+import './Style/main.scss'
 import { Provider } from './Providers/provider';
 import { Infos } from './Component/infos';
 import { useFirebase } from './Hooks/firebase';

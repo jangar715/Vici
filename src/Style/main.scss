@@ -1,5 +1,4 @@
-// @import './variables.scss';
-@import './components.scss';
+@import './variables.scss';
 @import './flex.scss';
 @import './typograph.scss';
 
@@ -58,7 +57,7 @@ $color in $colors {
         padding: $i + px;
     }
     .pt-#{$i} {
-        padding-top: $i + px;
+        padding-top: $i + px !important;
     }
     .pb-#{$i} {
         padding-bottom: $i + px;
@@ -495,4 +494,14 @@ $color in $colors {
 
 .top-0 {
     top: 0;
+}
+.list-style-none {
+    list-style-type:none;
+}
+a:visited {
+    color: black;
+}
+.a-style {
+    color: black;
+    text-decoration: none !important;
 }
