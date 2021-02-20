@@ -16,11 +16,14 @@
     border: none;
 }
 
-// @each $name,
-// $color in $colors {
-//     .c-#{$name} {
-//         color: $color;
-//     }
+@each $name, $color in $colors {
+    .c-#{$name} {
+        color: $color;
+    }
+
+    .b-#{$name} {
+        background-color: $color;
+    }
 
 //     .b-#{$name} {
 //         background-color: $color;
@@ -39,10 +42,10 @@
 //         }
 //     }
 
-//     .br-b-#{$color} {
-//         border-color: $color;
-//     }
-// }
+    // .br-b-#{$color} {
+    //     border-color: $color;
+    // }
+}
 
 @for $i from 0 through 600 {
     .h-#{$i} {
@@ -62,11 +65,11 @@
     .pb-#{$i} {
         padding-bottom: $i + px;
     }
-   .pa-vw-#{$i} {
+    .pa-vw-#{$i} {
         padding: $i + vw;
     }
 
-    .pa-vw-#{$i}{
+    .pa-vw-#{$i} {
         padding: $i + vw;
     }
 
@@ -209,8 +212,8 @@ body {
     margin: auto;
 }
 
-.margin-top-auto{
-    margin:auto 0 ;
+.margin-top-auto {
+    margin: auto 0;
 }
 
 // ЭНЭ CSS ЯМАР УЧИРТАЙГ САЙН СУДЛАХ
@@ -274,8 +277,7 @@ body {
     border-top: none;
 }
 
-@each $name,
-$color in $colors {
+@each $name, $color in $colors {
     @for $i from 1 to 100 {
         .bt-#{$name}-#{$i} {
             border-top: solid $color $i + px;
@@ -295,11 +297,11 @@ $color in $colors {
     .bradius-#{$i} {
         border-radius: $i + px;
     }
-    .brad-top-#{$i}{
+    .brad-top-#{$i} {
         border-top-left-radius: $i + px;
         border-top-right-radius: $i + px;
     }
-    .brad-bottom-#{$i}{
+    .brad-bottom-#{$i} {
         border-bottom-left-radius: $i + px;
         border-bottom-right-radius: $i + px;
     }
@@ -324,24 +326,19 @@ $color in $colors {
     display: none;
 }
 
-
 .tooltip {
     position: relative;
     display: inline-block;
 }
 
-
 .outl {
     outline: none;
 }
-
 
 //Background Stuffs
 .bs {
     background-size: auto;
 }
-
-
 
 .t-0 {
     top: 0;
@@ -350,7 +347,7 @@ $color in $colors {
 .r-0 {
     right: 0;
 }
-.l-0{
+.l-0 {
     left: 0;
 }
 
@@ -365,9 +362,6 @@ $color in $colors {
 .break-wrap {
     word-wrap: break-word;
 }
-
-
-
 
 .circle {
     border-radius: 50%;
@@ -397,7 +391,6 @@ $color in $colors {
 .p-f {
     position: fixed;
 }
-
 
 .ws33 {
     width: 33%;
@@ -477,7 +470,6 @@ $color in $colors {
     float: right;
 }
 
-
 .bs-contain {
     background-size: contain;
 }
@@ -490,13 +482,11 @@ $color in $colors {
     background-position: center;
 }
 
-
-
 .top-0 {
     top: 0;
 }
 .list-style-none {
-    list-style-type:none;
+    list-style-type: none;
 }
 a:visited {
     color: black;
