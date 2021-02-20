@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useFirebase, useCol } from '../Hooks/firebase';
-
+import { useHistory } from 'react-router-dom';
 export const AuthContext = createContext({
     user: null,
     ready: false,
@@ -11,9 +11,10 @@ export const AuthUserProvider = ({ children }) => {
         ready: false,
         user: null,
     });
+    const history = useHistory();
     let { auth, googleProvider } = useFirebase();
     let { createRecord } = useCol('users');
-    const createNewUser = ({
+    const createNewUser = async ({
         email,
         uid,
         displayName,
@@ -21,12 +22,20 @@ export const AuthUserProvider = ({ children }) => {
         phoneNumber,
         role = 'member',
     }) => {
-        createRecord(uid, { email, displayName, gender, phoneNumber, role });
+        await createRecord(uid, {
+            email,
+            displayName,
+            gender,
+            phoneNumber,
+            role,
+        });
     };
     const signInWithGmail = () => {
         auth.signInWithPopup(googleProvider)
             .then((result) => {
                 createNewUser({ ...result.user, gender: '' });
+                // history.push('/');
+                // console.log('hereee');
             })
             .catch((error) => console.log(error.message));
     };
@@ -45,6 +54,9 @@ export const AuthUserProvider = ({ children }) => {
                     gender: gender,
                     phoneNumber: phone,
                 });
+
+                // history.push('/');
+                // console.log('hellow world');
                 // const currentUser = result.user;
                 // createRecord();
 
