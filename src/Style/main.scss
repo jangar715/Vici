@@ -16,33 +16,33 @@
     border: none;
 }
 
-@each $name,
-$color in $colors {
-    .c-#{$name} {
-        color: $color;
-    }
+// @each $name,
+// $color in $colors {
+//     .c-#{$name} {
+//         color: $color;
+//     }
 
-    .b-#{$name} {
-        background-color: $color;
-    }
+//     .b-#{$name} {
+//         background-color: $color;
+//     }
 
-    @for $i from 1 through 10 {
-        .br-#{$name}-#{$i} {
-            border: solid $color $i + px;
-        }
+//     @for $i from 1 through 10 {
+//         .br-#{$name}-#{$i} {
+//             border: solid $color $i + px;
+//         }
 
-        .bb-#{$name}-#{$i} {
-            border-bottom: solid $color $i + px;
-        }
-        .m-vh-top-#{$i} {
-            margin-top: $i + vh;
-        }
-    }
+//         .bb-#{$name}-#{$i} {
+//             border-bottom: solid $color $i + px;
+//         }
+//         .m-vh-top-#{$i} {
+//             margin-top: $i + vh;
+//         }
+//     }
 
-    .br-b-#{$color} {
-        border-color: $color;
-    }
-}
+//     .br-b-#{$color} {
+//         border-color: $color;
+//     }
+// }
 
 @for $i from 0 through 600 {
     .h-#{$i} {
