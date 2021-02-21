@@ -10,26 +10,24 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import SignUp from '../SignUp';
 const Navbar = () => {
     const [click, setClick] = useState(false);
-    const [dropdown, setDropdown] = useState(false);
+    const [dropdown1, setDropdown1] = useState(false);
+    const [dropdown2, setDropdown2] = useState(false);
     const { user } = AuthStateValue();
     const { auth } = useFirebase();
 
     const handleClick = () => setClick(!click);
-    const closeMobileMenu = () => setClick(false);
-    const onMouseEnter = () => {
-        if (window.innerWidth < 960) {
-            setDropdown(false);
-        } else {
-            setDropdown(true);
-        }
+    const dropdown1Open = () => {
+       setDropdown1(true);
     };
-    const onMouseLeave = () => {
-        if (window.innerWidth < 960) {
-            setDropdown(false);
-        } else {
-            setDropdown(false);
-        }
+    const dropdown1Close = () => {
+        setDropdown1(false);
     };
+    const dropdown2Open = () => {
+        setDropdown2(true);
+     };
+     const dropdown2Close = () => {
+         setDropdown2(false);
+     };
     const logout = () => {
         auth.signOut()
             .then(() => {
@@ -40,7 +38,7 @@ const Navbar = () => {
     return (
         <>
             <navbar>
-                <div className='logo'>
+                <Link className='logo' to='/'>
                     <svg
                         width='293'
                         height='91'
@@ -71,30 +69,28 @@ const Navbar = () => {
                             fill='black'
                         />
                     </svg>
-                </div>
+                </Link>
                 <div className='menu-icon' onClick={handleClick}>
                     <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li
                         className='nav-item'
-                        onMouseEnter={onMouseEnter}
-                        onMouseLeave={onMouseLeave}
+                        onMouseEnter={dropdown1Open}
+                        onMouseLeave={dropdown1Close}
                     >
                         <Link
                             to='/college-prep'
                             className='nav-links'
-                            onClick={closeMobileMenu}
                         >
                             College Prep <i className='fas fa-caret-down' />
                         </Link>
-                        {dropdown && <Dropdown listName={CollegePrepItems} />}
+                        {dropdown1 && <Dropdown listName={CollegePrepItems} />}
                     </li>
                     <li className='nav-item'>
                         <Link
                             to='/blog'
                             className='nav-links'
-                            onClick={closeMobileMenu}
                         >
                             Blog
                         </Link>
@@ -102,23 +98,21 @@ const Navbar = () => {
                     <span class='line-break'></span>
                     <li
                         className='nav-item'
-                        onMouseEnter={onMouseEnter}
-                        onMouseLeave={onMouseLeave}
+                        onMouseEnter={dropdown2Open}
+                        onMouseLeave={dropdown2Close}
                     >
                         <Link
                             to='/education'
                             className='nav-links'
-                            onClick={closeMobileMenu}
                         >
                             Education <i className='fas fa-caret-down' />
                         </Link>
-                        {dropdown && <Dropdown listName={EducationItems} />}
+                        {dropdown2 && <Dropdown listName={EducationItems} />}
                     </li>
                     <li className='nav-item'>
                         <Link
                             to='/interview'
                             className='nav-links'
-                            onClick={closeMobileMenu}
                         >
                             Interview
                         </Link>
@@ -153,7 +147,18 @@ const Navbar = () => {
                         </svg>
                     </div>
                     {user ? (
-                        <div>{user.displayName}</div>
+                        <div className={'flex-direction-column'}>
+                            <div className="username-nav"onClick={handleClick}>{user.displayName}</div>
+                            {click ? 
+                                <div className="logout-container">
+                                    <div onClick={logout} className="logout-btn">
+                                        Logout
+                                    </div>
+                                    <hr className={'ml-5 mr-5'}/>
+                                </div> :
+                                <></>
+                            }
+                        </div>
                     ) : (
                         <Link to='/user-login'>Login</Link>
                     )}

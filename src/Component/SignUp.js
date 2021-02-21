@@ -26,55 +26,54 @@ const SignUp = () => {
         <div className='signup-body'>
             <div className="form-container">
                 <div className="input-container">
-                    <input
-                        value={newuser.username}
-                        onChange={(e) => {
-                            setUser({ ...newuser, username: e.target.value });
-                        }}
-                        onBlur={() => {
-                            setUser({ ...newuser, username: newuser.username.trim() });
-                        }}
-                        type='text'
-                        placeholder='username'
-                        className="input-field"
-                    />
-                    <input
-                        value={newuser.password}
-                        onChange={(e) => {
-                            setUser({ ...newuser, password: e.target.value });
-                        }}
-                        type='password'
-                        placeholder='password'
-                        className="input-field"
-                    />
-                    <input
-                        value={newuser.email}
-                        onChange={(e) => {
-                            setUser({ ...newuser, email: e.target.value });
-                        }}
-                        type='text'
-                        placeholder='email'
-                        // className='password'
-                        className="input-field"
-                    />
-                    <input
-                        value={newuser.gender}
-                        onChange={(e) => {
-                            setUser({ ...newuser, gender: e.target.value });
-                        }}
-                        type='text'
-                        placeholder='gender'
-                        className="input-field"
-                    />
-                    <input
-                        value={newuser.phone}
-                        onChange={(e) => {
-                            setUser({ ...newuser, phone: e.target.value });
-                        }}
-                        type='text'
-                        placeholder='phone'
-                        className="input-field"
-                    />
+                    <div className="label-container">
+                        <input
+                            value={newuser.username}
+                            onChange={(e) => {
+                                setUser({ ...newuser, username: e.target.value });
+                            }}
+                            onBlur={() => {
+                                setUser({ ...newuser, username: newuser.username.trim() });
+                            }}
+                            type='text'
+                            placeholder='username'
+                            className="input-field"
+                        />
+                    </div>
+                    <div className="label-container">
+                        <input
+                            value={newuser.password}
+                            onChange={(e) => {
+                                setUser({ ...newuser, password: e.target.value });
+                            }}
+                            type='password'
+                            placeholder='password'
+                            className="input-field"
+                        />
+                    </div>
+                    <div className="label-container">
+                        <input
+                            value={newuser.email}
+                            onChange={(e) => {
+                                setUser({ ...newuser, email: e.target.value });
+                            }}
+                            type='text'
+                            placeholder='email'
+                            // className='password'
+                            className="input-field"
+                        />
+                    </div>
+                    <div className="label-container">
+                        <input
+                            value={newuser.phone}
+                            onChange={(e) => {
+                                setUser({ ...newuser, phone: e.target.value });
+                            }}
+                            type='text'
+                            placeholder='phone'
+                            className="input-field"
+                        />
+                    </div>
                 </div>
                 <button
                     type='submit'
@@ -82,6 +81,7 @@ const SignUp = () => {
                         // e.preventDefault();
                         signInWithGmail();
                     }}
+                    className="signup__button"
                 >
                     Use gmail
                 </button>
@@ -91,6 +91,7 @@ const SignUp = () => {
                         // e.preventDefault();
                         signUpWithEmailAndPassword(newuser);
                     }}
+                    className="signup__button"
                 >
                     Sign Up
                 </button>

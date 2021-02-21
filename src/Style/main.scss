@@ -25,18 +25,22 @@
         background-color: $color;
     }
 
-    @for $i from 1 through 10 {
-        .br-#{$name}-#{$i} {
-            border: solid $color $i + px;
-        }
+//     .b-#{$name} {
+//         background-color: $color;
+//     }
 
-        .bb-#{$name}-#{$i} {
-            border-bottom: solid $color $i + px;
-        }
-        .m-vh-top-#{$i} {
-            margin-top: $i + vh;
-        }
-    }
+//     @for $i from 1 through 10 {
+//         .br-#{$name}-#{$i} {
+//             border: solid $color $i + px;
+//         }
+
+//         .bb-#{$name}-#{$i} {
+//             border-bottom: solid $color $i + px;
+//         }
+//         .m-vh-top-#{$i} {
+//             margin-top: $i + vh;
+//         }
+//     }
 
     // .br-b-#{$color} {
     //     border-color: $color;

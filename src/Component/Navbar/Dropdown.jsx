@@ -21,6 +21,7 @@ const Dropdown = ({ listName }) => {
                             >
                                 {item.name}
                             </Link>
+                            <hr className={'ml-5 mr-5'}/>
                         </li>
                     );
                 })}
