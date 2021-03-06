@@ -14,7 +14,7 @@ export const AuthUserProvider = ({ children }) => {
     const history = useHistory();
     let { auth, googleProvider } = useFirebase();
     let { createRecord } = useCol('users');
-    const createNewUser = async ({
+    const createNewUser = ({
         email,
         uid,
         displayName,
@@ -22,7 +22,7 @@ export const AuthUserProvider = ({ children }) => {
         phoneNumber,
         role = 'member',
     }) => {
-        await createRecord(uid, {
+        createRecord(uid, {
             email,
             displayName,
             gender,
@@ -48,6 +48,17 @@ export const AuthUserProvider = ({ children }) => {
     }) => {
         auth.createUserWithEmailAndPassword(email, password)
             .then((result) => {
+                console.log(result.user);
+                result.user
+                    .updateProfile({
+                        displayName: username,
+                    })
+                    .then(function () {
+                        console.log('Successfully updated username');
+                    })
+                    .catch(function (error) {
+                        console.log('gege');
+                    });
                 createNewUser({
                     ...result.user,
                     displayName: username,
