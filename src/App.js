@@ -3,6 +3,7 @@ import Navbar from './Component/Navbar/Navbar';
 import SignUp from './Component/SignUp';
 import './Style/main.scss';
 import { Provider } from './Providers/provider';
+import { TopCollegeProvider } from './Providers/TopCollegeProvider';
 import { Infos } from './Component/infos';
 import { useDoc, useFirebase } from './Hooks/firebase';
 import { AuthStateValue, AuthUserProvider } from './Hooks/auth-user-provider';
@@ -12,6 +13,7 @@ import { Context } from './Providers/provider';
 import './Style/App.css';
 import Intro from './Component/Intro page/Intro';
 import Admin from './Component/Admin/Admin';
+import TopColleges from './Component/Top Colleges/TopColleges';
 import { async } from 'q';
 
 const App = () => {
@@ -34,6 +36,11 @@ const App = () => {
                     <Route path='/admin'>
                         <Admin />
                     </Route>
+                    <TopCollegeProvider>
+                        <Route path='/top-colleges/'>
+                            <TopColleges />
+                        </Route>
+                    </TopCollegeProvider>
                 </Switch>
             </Provider>
         </Router>
