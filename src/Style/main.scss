@@ -104,6 +104,10 @@
         padding-left: $i + px;
         padding-right: $i + px;
     }
+    .pv-#{$i} {
+        padding-top: $i + px;
+        padding-bottom: $i + px;
+    }
 
     .pv-#{$i} {
         padding-top: $i + px;
@@ -164,6 +168,10 @@ body {
 
 .bshadow {
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.35);
+}
+
+.of-y-h {
+    overflow-y: hidden !important;
 }
 
 .of-y {
@@ -254,7 +262,7 @@ body {
 
 .ru {
     text-decoration: none;
-    color: white;
+    color: white !important;
 }
 
 .ul {

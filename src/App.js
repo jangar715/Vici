@@ -15,6 +15,7 @@ import Intro from './Component/Intro page/Intro';
 import Admin from './Component/Admin/Admin';
 import TopColleges from './Component/Top Colleges/TopColleges';
 import { async } from 'q';
+import Education from './Component/Education/Education';
 
 const App = () => {
     const { user } = AuthStateValue();
@@ -23,25 +24,61 @@ const App = () => {
     return (
         <Router>
             <Provider>
-                <Switch>
-                    <Route exact path='/'>
-                        <Intro />
-                    </Route>
-                    <Route path='/infos'>
-                        <Infos />
-                    </Route>
-                    <Route path='/user-login'>
-                        <SignUp />
-                    </Route>
-                    <Route path='/admin'>
-                        <Admin />
-                    </Route>
-                    <TopCollegeProvider>
+                <TopCollegeProvider>
+                    <Switch>
+                        <Route exact path='/'>
+                            <Intro />
+                        </Route>
+                        <Route path='/infos'>
+                            <Infos />
+                        </Route>
+                        <Route path='/user-login'>
+                            <SignUp />
+                        </Route>
+                        <Route path='/admin'>
+                            <Admin />
+                        </Route>
                         <Route path='/top-colleges/'>
                             <TopColleges />
                         </Route>
-                    </TopCollegeProvider>
-                </Switch>
+                        <Route path='/education'>
+                            <Education />
+                        </Route>
+                        <Route path='/international-exams'>
+                            <Infos />
+                        </Route>
+                        <Route path='/business'>
+                            <Infos />
+                        </Route>
+                        <Route path='/psychology'>
+                            <Infos />
+                        </Route>
+                        <Route path='/world-history'>
+                            <Infos />
+                        </Route>
+                        <Route path='/extracurriculars'>
+                            <Infos />
+                        </Route>
+                        <Route path='/scholarships'>
+                            <Infos />
+                        </Route>
+                        <Route path='/major'>
+                            <Infos />
+                        </Route>
+                        <Route path='/philosophy'>
+                            <Infos />
+                        </Route>
+                        <Route path='/ideal-plan'>
+                            <Infos />
+                        </Route>
+                        <Route path='/economics'>
+                            <Infos />
+                        </Route>
+                        <Route path='/statistics'>
+                            <Infos />
+                        </Route>
+                    </Switch>
+                </TopCollegeProvider>
             </Provider>
         </Router>
     );

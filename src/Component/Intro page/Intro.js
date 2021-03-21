@@ -1,14 +1,14 @@
 import React from 'react';
+import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import Body from './Body';
-import Footer from './Footer';
 
 function Intro() {
     return (
         <div>
             <Navbar />
             <Body />
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 }

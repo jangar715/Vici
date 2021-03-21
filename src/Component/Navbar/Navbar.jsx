@@ -17,17 +17,17 @@ const Navbar = () => {
 
     const handleClick = () => setClick(!click);
     const dropdown1Open = () => {
-       setDropdown1(true);
+        setDropdown1(true);
     };
     const dropdown1Close = () => {
         setDropdown1(false);
     };
     const dropdown2Open = () => {
         setDropdown2(true);
-     };
-     const dropdown2Close = () => {
-         setDropdown2(false);
-     };
+    };
+    const dropdown2Close = () => {
+        setDropdown2(false);
+    };
     const logout = () => {
         auth.signOut()
             .then(() => {
@@ -79,19 +79,13 @@ const Navbar = () => {
                         onMouseEnter={dropdown1Open}
                         onMouseLeave={dropdown1Close}
                     >
-                        <Link
-                            to='/college-prep'
-                            className='nav-links'
-                        >
+                        <Link to='/college-prep' className='nav-links'>
                             College Prep <i className='fas fa-caret-down' />
                         </Link>
                         {dropdown1 && <Dropdown listName={CollegePrepItems} />}
                     </li>
                     <li className='nav-item'>
-                        <Link
-                            to='/blog'
-                            className='nav-links'
-                        >
+                        <Link to='/blog' className='nav-links'>
                             Blog
                         </Link>
                     </li>
@@ -101,19 +95,13 @@ const Navbar = () => {
                         onMouseEnter={dropdown2Open}
                         onMouseLeave={dropdown2Close}
                     >
-                        <Link
-                            to='/education'
-                            className='nav-links'
-                        >
+                        <Link to='/education' className='nav-links'>
                             Education <i className='fas fa-caret-down' />
                         </Link>
                         {dropdown2 && <Dropdown listName={EducationItems} />}
                     </li>
                     <li className='nav-item'>
-                        <Link
-                            to='/interview'
-                            className='nav-links'
-                        >
+                        <Link to='/interview' className='nav-links'>
                             Interview
                         </Link>
                     </li>
@@ -148,16 +136,22 @@ const Navbar = () => {
                     </div>
                     {user ? (
                         <div className={'flex-direction-column'}>
-                            <div className="username-nav"onClick={handleClick}>{user.displayName}</div>
-                            {click ? 
-                                <div className="logout-container">
-                                    <div onClick={logout} className="logout-btn">
+                            <div className='username-nav' onClick={handleClick}>
+                                {user.displayName}
+                            </div>
+                            {click ? (
+                                <div className='logout-container'>
+                                    <div
+                                        onClick={logout}
+                                        className='logout-btn'
+                                    >
                                         Logout
                                     </div>
-                                    <hr className={'ml-5 mr-5'}/>
-                                </div> :
+                                    <hr className={'ml-5 mr-5'} />
+                                </div>
+                            ) : (
                                 <></>
-                            }
+                            )}
                         </div>
                     ) : (
                         <Link to='/user-login'>Login</Link>
