@@ -20,7 +20,11 @@ import Education from './Component/Education/Education';
 const App = () => {
     const { user } = AuthStateValue();
     const { auth } = useFirebase();
-
+    useEffect(() => {
+        if (user) {
+            console.log(user.email)
+        }
+    }, [])
     return (
         <Router>
             <Provider>

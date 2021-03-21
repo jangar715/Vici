@@ -16,17 +16,11 @@ const Navbar = () => {
     const { auth } = useFirebase();
 
     const handleClick = () => setClick(!click);
-    const dropdown1Open = () => {
-        setDropdown1(true);
+    const dropdown1Hover = () => {
+        setDropdown1(!dropdown1);
     };
-    const dropdown1Close = () => {
-        setDropdown1(false);
-    };
-    const dropdown2Open = () => {
-        setDropdown2(true);
-    };
-    const dropdown2Close = () => {
-        setDropdown2(false);
+    const dropdown2Hover = () => {
+        setDropdown2(!dropdown2);
     };
     const logout = () => {
         auth.signOut()
@@ -76,8 +70,8 @@ const Navbar = () => {
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li
                         className='nav-item'
-                        onMouseEnter={dropdown1Open}
-                        onMouseLeave={dropdown1Close}
+                        onMouseEnter={dropdown1Hover}
+                        onMouseLeave={dropdown1Hover}
                     >
                         <Link to='/college-prep' className='nav-links'>
                             College Prep <i className='fas fa-caret-down' />
@@ -89,11 +83,11 @@ const Navbar = () => {
                             Blog
                         </Link>
                     </li>
-                    <span class='line-break'></span>
+                    <span className='line-break'></span>
                     <li
                         className='nav-item'
-                        onMouseEnter={dropdown2Open}
-                        onMouseLeave={dropdown2Close}
+                        onMouseEnter={dropdown2Hover}
+                        onMouseLeave={dropdown2Hover}
                     >
                         <Link to='/education' className='nav-links'>
                             Education <i className='fas fa-caret-down' />
@@ -122,7 +116,7 @@ const Navbar = () => {
                                 height='25'
                                 rx='12.5'
                                 stroke='black'
-                                stroke-width='2'
+                                strokeWidth='2'
                             />
                             <path
                                 d='M-2.25972e-06 13.5C-2.25972e-06 6.04416 6.04415 0 13.5 0H22.3651H30.3356C37.7915 0 43.8356 6.04416 43.8356 13.5C43.8356 20.9558 37.7915 27 30.3356 27H13.5C6.04416 27 -2.25972e-06 20.9558 -2.25972e-06 13.5Z'
