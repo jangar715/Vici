@@ -16,6 +16,7 @@ import Admin from './Component/Admin/Admin';
 import TopColleges from './Component/Top Colleges/TopColleges';
 import { async } from 'q';
 import Education from './Component/Education/Education';
+import Interview from './Component/Interview/Interview';
 
 const App = () => {
     const { user } = AuthStateValue();
@@ -80,6 +81,9 @@ const App = () => {
                         </Route>
                         <Route path='/statistics'>
                             <Infos />
+                        </Route>
+                        <Route path='/interview'>
+                            <Interview/>
                         </Route>
                     </Switch>
                 </TopCollegeProvider>

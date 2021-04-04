@@ -4,6 +4,7 @@ import './Navbar.css';
 import { CollegePrepItems } from './CollegePrepItems';
 import { EducationItems } from './EducationItems';
 import Dropdown from './Dropdown';
+import { Interview } from '../Interview/Interview.js'
 import { AuthStateValue } from '../../Hooks/auth-user-provider';
 import { useFirebase } from '../../Hooks/firebase';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
