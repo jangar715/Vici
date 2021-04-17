@@ -24,34 +24,43 @@ const SignUp = () => {
         <Redirect to='/' />
     ) : (
         <div className='signup-body'>
-            <div className="form-container">
-                <div className="input-container">
-                    <div className="label-container">
+            <div className='form-container'>
+                <div className='input-container'>
+                    <div className='label-container'>
                         <input
                             value={newuser.username}
                             onChange={(e) => {
-                                setUser({ ...newuser, username: e.target.value });
+                                setUser({
+                                    ...newuser,
+                                    username: e.target.value,
+                                });
                             }}
                             onBlur={() => {
-                                setUser({ ...newuser, username: newuser.username.trim() });
+                                setUser({
+                                    ...newuser,
+                                    username: newuser.username.trim(),
+                                });
                             }}
                             type='text'
                             placeholder='username'
-                            className="input-field"
+                            className='input-field'
                         />
                     </div>
-                    <div className="label-container">
+                    <div className='label-container'>
                         <input
                             value={newuser.password}
                             onChange={(e) => {
-                                setUser({ ...newuser, password: e.target.value });
+                                setUser({
+                                    ...newuser,
+                                    password: e.target.value,
+                                });
                             }}
                             type='password'
                             placeholder='password'
-                            className="input-field"
+                            className='input-field'
                         />
                     </div>
-                    <div className="label-container">
+                    <div className='label-container'>
                         <input
                             value={newuser.email}
                             onChange={(e) => {
@@ -60,10 +69,10 @@ const SignUp = () => {
                             type='text'
                             placeholder='email'
                             // className='password'
-                            className="input-field"
+                            className='input-field'
                         />
                     </div>
-                    <div className="label-container">
+                    <div className='label-container'>
                         <input
                             value={newuser.phone}
                             onChange={(e) => {
@@ -71,7 +80,7 @@ const SignUp = () => {
                             }}
                             type='text'
                             placeholder='phone'
-                            className="input-field"
+                            className='input-field'
                         />
                     </div>
                 </div>
@@ -81,7 +90,7 @@ const SignUp = () => {
                         // e.preventDefault();
                         signInWithGmail();
                     }}
-                    className="signup__button"
+                    className='signup__button'
                 >
                     Use gmail
                 </button>
@@ -91,7 +100,7 @@ const SignUp = () => {
                         // e.preventDefault();
                         signUpWithEmailAndPassword(newuser);
                     }}
-                    className="signup__button"
+                    className='signup__button'
                 >
                     Sign Up
                 </button>

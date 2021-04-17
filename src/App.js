@@ -2,30 +2,30 @@ import React, { useContext, useEffect, useState } from 'react';
 import Navbar from './Component/Navbar/Navbar';
 import SignUp from './Component/SignUp';
 import './Style/main.scss';
-import { Provider } from './Providers/provider';
+import { Provider } from './Providers/contentProvider';
 import { TopCollegeProvider } from './Providers/TopCollegeProvider';
 import { Infos } from './Component/infos';
 import { useDoc, useFirebase } from './Hooks/firebase';
 import { AuthStateValue, AuthUserProvider } from './Hooks/auth-user-provider';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Context } from './Providers/provider';
+import { Context } from './Providers/contentProvider';
 
 import './Style/App.css';
 import Intro from './Component/Intro page/Intro';
 import Admin from './Component/Admin/Admin';
 import TopColleges from './Component/Top Colleges/TopColleges';
-import { async } from 'q';
 import Education from './Component/Education/Education';
 import Interview from './Component/Interview/Interview';
+import Blog from './Component/Blog/Blog';
 
 const App = () => {
     const { user } = AuthStateValue();
     const { auth } = useFirebase();
     useEffect(() => {
         if (user) {
-            console.log(user.email)
+            console.log(user.email);
         }
-    }, [])
+    }, []);
     return (
         <Router>
             <Provider>
@@ -83,7 +83,10 @@ const App = () => {
                             <Infos />
                         </Route>
                         <Route path='/interview'>
-                            <Interview/>
+                            <Interview />
+                        </Route>
+                        <Route path='/blog'>
+                            <Blog />
                         </Route>
                     </Switch>
                 </TopCollegeProvider>

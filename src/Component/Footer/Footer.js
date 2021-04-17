@@ -11,10 +11,17 @@ function Footer() {
                 return (
                     <Col>
                         <Link to={path} className='nounderline'>
-                            <h1 className='header' key={`${index}`}>{title}</h1>
+                            <h1 className='header' key={`${index}`}>
+                                {title}
+                            </h1>
                             {elements.map((el, indexx) => (
                                 <Link to={el.path} className='nounderline'>
-                                    <div className='el' key={`${index}-${indexx}`}>{el.name}</div>
+                                    <div
+                                        className='el'
+                                        key={`${index}-${indexx}`}
+                                    >
+                                        {el.name}
+                                    </div>
                                 </Link>
                             ))}
                         </Link>
