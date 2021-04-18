@@ -144,7 +144,7 @@
     }
 }
 
-@for $i from 1 through 100 {
+@for $i from -1 through 100 {
     .h-vh-#{$i} {
         height: $i + vh;
     }
@@ -182,11 +182,9 @@ body {
     overflow: none;
 }
 
-
 .w10 {
     width: 10%;
 }
-
 
 .w15 {
     width: 15%;
@@ -328,7 +326,7 @@ body {
     }
 }
 
-@for $i from 1 to 100 {
+@for $i from -100 to 100 {
     .bradius-#{$i} {
         border-radius: $i + px;
     }
@@ -351,6 +349,9 @@ body {
 
     .h#{$i} {
         height: $i + vh;
+    }
+    .left-#{$i} {
+        left: $i + px;
     }
 
     .bottom-#{$i} {

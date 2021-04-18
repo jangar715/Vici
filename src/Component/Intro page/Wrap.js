@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom';
 import './Wrap.css';
 function Wrap({ category, title, description, link, photo, left }) {
     return (
-        <div
-            className={`w-vw-100 h-vh-100 ${
-                left ? 'flex' : 'flex-row-reverse'
-            }`}
-        >
+        <div className={`w100 h-vh-100 ${left ? 'flex' : 'flex-row-reverse'}`}>
             <div className='w50 flex-center'>
                 <div className='wrapper'>
                     <h1>{title}</h1>

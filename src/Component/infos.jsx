@@ -1,14 +1,23 @@
 import React, { useContext } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
-import { Context } from '../Providers/provider';
+import { Context } from '../Providers/contentProvider';
 import img from '../Img/Rectangle 14.png';
 import Navbar from './Navbar/Navbar';
+import { useDoc, useCol, useFirebase } from '../Hooks/firebase';
+import { AuthStateValue } from '../Hooks/auth-user-provider';
 const Infos = () => {
     const { informations } = useContext(Context);
+    // const { data } = AuthStateValue();
+    // const { firebase } = useFirebase();
+    // console.log(data, 'data');
     return (
         <div className='w-vw-100 h-vh-100 font-ubuntu'>
             <Navbar />
-            <img src={img} className='w100' />
+            <img
+                src={img}
+                className='w100'
+                alt='Hello world idk img here not loaded'
+            />
             <div className='flex'>
                 <div className='ma-10'>
                     {/* <Link to="/">Back</Link> */}
