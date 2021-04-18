@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Navbar from './Component/Navbar/Navbar';
-import SignUp from './Component/SignUp';
+import SignUpPage from './Component/Login/SignUpPage';
 import './Style/main.scss';
 import { Provider } from './Providers/provider';
 import { TopCollegeProvider } from './Providers/TopCollegeProvider';
@@ -37,7 +37,7 @@ const App = () => {
                             <Infos />
                         </Route>
                         <Route path='/user-login'>
-                            <SignUp />
+                            <SignUpPage />
                         </Route>
                         <Route path='/admin'>
                             <Admin />

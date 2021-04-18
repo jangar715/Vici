@@ -7,7 +7,6 @@ import Dropdown from './Dropdown';
 import { AuthStateValue } from '../../Hooks/auth-user-provider';
 import { useFirebase } from '../../Hooks/firebase';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import SignUp from '../SignUp';
 const Navbar = () => {
     const [click, setClick] = useState(false);
     const [dropdown1, setDropdown1] = useState(false);

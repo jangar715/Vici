@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import firebase from 'firebase';
 import { useFirebase, useCol } from '../Hooks/firebase';
 import { useHistory } from 'react-router-dom';
 export const AuthContext = createContext({
@@ -77,6 +78,15 @@ export const AuthUserProvider = ({ children }) => {
             })
             .catch((error) => console.log(error.message));
     };
+    const singInWithEmailAndPassword = async ({
+        email,
+        password
+    }) => {
+        await auth.signInWithEmailAndPassword(email, password)
+        .catch((error) => {
+            console.log(error.message)
+        });
+    }
 
     useEffect(() => {
         if (!auth) {
@@ -104,6 +114,7 @@ export const AuthUserProvider = ({ children }) => {
                 auth,
                 signInWithGmail,
                 signUpWithEmailAndPassword,
+                singInWithEmailAndPassword
             }}
         >
             {children}
