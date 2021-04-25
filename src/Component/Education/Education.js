@@ -3,16 +3,19 @@ import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import { EducationItems } from '../Navbar/EducationItems';
 import Lesson from './Lesson';
+import img from '../../Img/oceans2.png';
+import Body from './Body';
 function Education() {
     return (
         <div>
             <Navbar />
-            <div className='flex justify-around ph-50 pv-20'>
-                {EducationItems.map((el) => {
-                    console.log(el);
-                    return <Lesson name={el.name} path={el.path} />;
-                })}
+            <div
+                className='h-150 w100 c-white pl-190 pr'
+                style={{ backgroundImage: `url(${img})` }}
+            >
+                <div className='bottom-10 fs-48 absolute'> Education</div>
             </div>
+            <Body></Body>
             <Footer />
         </div>
     );
